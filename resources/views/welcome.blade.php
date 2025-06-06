@@ -1,5 +1,5 @@
 @include("head")
-
+@include("header")
 <h1 class= "text-9xl text-white  font-extrabold" style="-webkit-text-stroke: 5px black;">
     Who is Who?
 </h1>
