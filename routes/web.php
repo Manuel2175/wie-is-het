@@ -8,30 +8,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/whogame', function () {
-    return view('whogame');
-})->name('whogame');
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/game', [GameController::class, 'create'])->name('game.create');
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/game/create', [GameController::class, 'create'])->name('game.create');
+    Route::get('/game', [GameController::class, 'create'])->name('game.create');
     Route::post('/game/store', [GameController::class, 'store'])->name('game.store');
 
     Route::get('/whogame', [GameController::class, 'whogame'])->name('whogame');
-
-
+    Route::post('/whogame/guess', [GameController::class, 'guess'])->name('guess');
 });
 
 require __DIR__.'/auth.php';
+

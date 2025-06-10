@@ -17,6 +17,7 @@ class Game extends Model
         'player2Choice_id',
         'chat_id',
         'turn',
+        'round',
     ];
 
 

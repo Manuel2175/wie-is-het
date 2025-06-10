@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('player2Choice_id')->nullable()->constrained('characters')->onDelete('cascade');
             $table->foreignId('chat_id')->nullable()->constrained('chat')->onDelete('cascade');
             $table->boolean('turn');
+            $table->integer('round');
             $table->timestamps();
         });
     }
