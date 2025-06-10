@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Characters extends Model
 {
-        Protected $fillable = [
-            'name',
-            'img'
-        ];
+    protected $fillable = [
+        'name',
+        'img'
+    ];
 }

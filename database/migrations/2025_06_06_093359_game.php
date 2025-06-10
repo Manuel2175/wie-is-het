@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->foreignId('player1_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('player2_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('player2_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->foreignId('player1Choice_id')->constrained('characters')->onDelete('cascade');
-            $table->foreignId('player2Choice_id')->constrained('characters')->onDelete('cascade');
-            $table->foreignId('chat_id')->constrained('chat')->onDelete('cascade');
+            $table->foreignId('player2Choice_id')->nullable()->constrained('characters')->onDelete('cascade');
+            $table->foreignId('chat_id')->nullable()->constrained('chat')->onDelete('cascade');
             $table->boolean('turn');
             $table->timestamps();
         });
