@@ -15,7 +15,7 @@ class Chat extends Model
     ];
 
     // Optioneel: relatie met User-model
-    public function User()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
