@@ -1,29 +1,27 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@include("head")
+@include("header")
+<div class="min-h-screen bg-gray -100 py-12 flex flex-col items-center">
+    <h1 class="text-[40px] font-bold mb-10 text-blue-800">Profielinstellingen</h1>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <div class="w-full  max-w-4xl flex flex-col gap-8 px-4">
+        <!-- Update Profile Info -->
+        <div class="bg-blue-900 p-6 rounded-2xl shadow-xl border border-blue-200">
+            <h2 class="text-2xl font-semibold text-white  mb-4">Profielgegevens bijwerken</h2>
+            @include('profile.partials.update-profile-information-form')
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+        <!-- Update Password -->
+        <div class="bg-blue-900 p-6 rounded-2xl shadow-xl border border-blue-200">
+            <h2 class="text-2xl font-semibold text-white  mb-4">Wachtwoord wijzigen</h2>
+            @include('profile.partials.update-password-form')
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+        <!-- Delete User -->
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-red-300">
+            <h2 class="text-2xl font-semibold text-red-700 mb-4">Account verwijderen</h2>
+            @include('profile.partials.delete-user-form')
         </div>
     </div>
-</x-app-layout>
+</div>
+
+@include("footer")
