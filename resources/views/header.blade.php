@@ -1,3 +1,4 @@
-<header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-
+@include('head')
+<header class=" p-4 flex justify-between items-center text-center "><img
+        src="{{ asset('storage/logo/Logo.png') }}" alt="logo">
 </header>
