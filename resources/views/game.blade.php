@@ -1,7 +1,9 @@
 @include('head')
-
+@include('game-head')
 <form method="POST" action="{{ route('game.store') }}" onsubmit="return validateSelection()">
     @csrf
+
+
 
 {{--allen de $characters--}}
     <x-character-grid :characters="$characters" />

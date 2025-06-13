@@ -35,14 +35,14 @@ class GameController extends Controller
     {
         $game = Game::find(session('game_id'));
         if (!$game) {
-            return back()->with('message', 'Geen game gevonden.');
+            return back()->with('message', 'No game found');
         }
 
         $guessId = $request->input('player1Choice');
         $userId = auth()->id();
 
         if (($game->turn && $game->player1_id != $userId) || (!$game->turn && $game->player2_id != $userId)) {
-            return back()->with('message', 'Het is niet jouw beurt.');
+            return back()->with('message', 'Not youre turn');
         }
 
         if ($userId == $game->player1_id) {
@@ -64,12 +64,12 @@ class GameController extends Controller
             // Delete game
             $game->delete();
 
-            return redirect()->route('whogame')->with('message', 'Goed geraden! Jij hebt gewonnen!');
+            return redirect()->route('whogame')->with('message', 'Nice job, You won!');
         } else {
             $game->turn = !$game->turn;
             $game->save();
 
-            return back()->with('message', 'Fout! Beurt wisselt.');
+            return back()->with('message', 'wrong');
         }
     }
 
