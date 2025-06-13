@@ -6,24 +6,26 @@
     </div>
 @endif
 
-
 @if(!$game)
     <h1>Er is geen game gevonden.</h1>
 @elseif($game->player2Choice_id === null)
-    <h1>waiting for players.</h1>
+    <h1>Waiting for players...</h1>
     <script>
         setTimeout(() => location.reload(), 3000);
     </script>
 @else
-    <h2>player found</h2>
+    <h2>Player found!</h2>
 
     <form method="POST" action="{{ route('guess') }}">
         @csrf
-        <select id="person" name="player1Choice" size="24" required>
-            @foreach ($characters as $character)
-                <option value="{{ $character->id }}">{{ $character->name }}</option>
-            @endforeach
-        </select>
-        <button type="submit">guess</button>
+
+        <x-character-grid :characters="$characters" />
+
+        <button
+            type="submit"
+            class="mt-6 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+            Guess
+        </button>
     </form>
 @endif

@@ -84,12 +84,14 @@ class GameController extends Controller
             $game->update([
                 'player2_id' => auth()->id(),
                 'player2Choice_id' => $request->input('player1Choice'),
+                'round'=> 1,
             ]);
         } else {
             $game = Game::create([
                 'player1_id' => auth()->id(),
                 'player1Choice_id' => $request->input('player1Choice'),
                 'turn' => true,
+                'round'=> 1,
             ]);
         }
 
