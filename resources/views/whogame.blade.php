@@ -19,7 +19,10 @@
     <form method="POST" action="{{ route('guess') }}">
         @csrf
 
-        <x-character-grid :characters="$characters" />
+{{--$characters grid met afstreepen--}}
+        <x-character-grid :characters="$characters" :markable="true" />
+
+
 
         <button
             type="submit"

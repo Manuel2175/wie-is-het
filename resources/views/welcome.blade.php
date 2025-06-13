@@ -1,15 +1,19 @@
 @include("head")
 @include("header")
 @if(!auth()->user())
-<a class="m-6 p-5 text-5xl border-black border-solid border-2 rounded-3xl shadow-sm" href="/login">
-    Login
-</a>
-<a class="p-5 text-5xl border-black border-solid border-2 rounded-3xl shadow-sm" href="/register">
-    Register
-</a>
+    <a class="m-4 inline-flex h-20 min-w-[250px] items-center justify-center px-10 text-3xl font-semibold border-2 border-black rounded-3xl shadow-md transition active:scale-95 hover:shadow-lg" href="/login">
+        Login
+    </a>
+
+    <a class="m-4 inline-flex h-20 min-w-[250px] items-center justify-center px-10 text-3xl font-semibold border-2 border-black rounded-3xl shadow-md transition active:scale-95 hover:shadow-lg" href="/register">
+        Register
+    </a>
+
 @else
-    <a class="p-5 text-5xl border-black border-solid border-2 rounded-3xl shadow-sm" href="/dashboard">
+    <a class="m-4 inline-flex h-20 min-w-[250px] items-center justify-center px-10 text-3xl font-semibold border-2 border-black rounded-3xl shadow-md transition active:scale-95 hover:shadow-lg" href="/dashboard">
         Account
     </a>
 @endif
+
+
 @include("footer")

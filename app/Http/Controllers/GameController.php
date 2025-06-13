@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class GameController extends Controller
 {
 
-
+//maakt een game aan
     public function create()
     {
         $characters = Characters::all();
@@ -21,7 +21,7 @@ class GameController extends Controller
         return view('game', compact('characters', 'game'));  // $game meesturen
     }
 
-
+//als er al een game bestaat zoekt hij naar een geldige
     public function whogame()
     {
         $game = Game::find(session('game_id'));
